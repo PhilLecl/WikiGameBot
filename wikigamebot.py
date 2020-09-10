@@ -67,9 +67,8 @@ class WikiGame(commands.Cog):
 
     async def ask_confirmation_new_game(self, ctx):
         await ctx.send("There is currently a game going on:")
-        await ctx.send("Server: {0}; Channel: {1}".format(self.channel.guild, self.channel))
-        await ctx.send("{0} submissions by: ".format(len(self.submissions)))
-        await self.show_submitters()
+        await ctx.send("Server: {0}; Channel: {1}; Submissions: {2}".format(self.channel.guild, self.channel,
+                                                                            len(self.submissions)))
         await ctx.send("Are you sure you want to start a new game? This will delete the current game.")
         await ctx.send("Use the 'start' command with the '-f/--force' option to confirm.")
 
