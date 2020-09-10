@@ -97,6 +97,9 @@ class WikiGame(commands.Cog):
             return
 
         article = " ".join(_article)
+        if not article or article.isspace():
+            await ctx.send("Empty article titles are not allowed.")
+            return
         for submission in self.submissions:
             if submission[0] == ctx.author:
                 self.submissions.remove(submission)
