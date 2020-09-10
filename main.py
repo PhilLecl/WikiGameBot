@@ -2,10 +2,11 @@
 import wikigamebot
 from discord.ext import commands
 import json
+import sys
 
 # constants
-CONFIG_FILE = "config.json"
-SECRETS_FILE = "secrets.json"
+CONFIG_FILE = sys.path[0] + "/config.json"
+SECRETS_FILE = sys.path[0] + "/secrets.json"
 
 if __name__ == "__main__":
     with open(SECRETS_FILE) as sf, open(CONFIG_FILE) as cf:
