@@ -4,8 +4,8 @@ This is a Discord bot for playing "the Wikipedia game".
 ## Rules of the game
 1. Everybody except for one person (the "interrogator") selects a Wikipedia article, reads it, 
 and writes the title on a piece of paper.
-2. The "interrogator" select an article picks on of the articles at random and reads the title out aloud.
-3. Everybody has to act like it's their article while the interrogator has to ask questions to find out 
+2. The "interrogator" picks one of the article titles at random and reads the title out loud.
+3. Everybody has to pretend it's their article while the interrogator has to ask questions to find out 
 whose article it is.
 
 ## Usage of the bot
