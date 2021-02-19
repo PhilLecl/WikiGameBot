@@ -143,8 +143,8 @@ class WikiGame(commands.Cog):
 
     @commands.command()
     async def solution(self, ctx):
-        if self.pick is None:
-            await ctx.send("No article has been drawn yet.")
+        if not await self.require_game(ctx) or not await self.require_game_channel(ctx) or not await self.require_pick(
+                ctx):
             return
         await self.show_submissions()
         await ctx.send("The drawn article was '{0[1]}', submitted by {0[0].mention}.".format(self.pick))
@@ -153,6 +153,9 @@ class WikiGame(commands.Cog):
 
     @commands.command()
     async def guess(self, ctx):
+        if not await self.require_game(ctx) or not await self.require_game_channel(
+                ctx) or not await self.require_pick(ctx):
+            return
         mentions = ctx.message.mentions
         if len(mentions) != 1:
             await ctx.send("Guesses are only valid if you mention exactly one user.")
