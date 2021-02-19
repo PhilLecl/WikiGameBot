@@ -171,3 +171,10 @@ class WikiGame(commands.Cog):
         mentions = ctx.message.mentions
         self.whitelist.update(mentions)
         await ctx.send("Added {0} user{1} to the whitelist.".format(len(mentions), ("" if len(mentions) == 1 else "s")))
+
+    @commands.command()
+    async def credits(self, ctx):
+        await ctx.send("This bot was created by Philipp Leclercq and published as free software under the GNU General "
+                       "Public License Version 3.")
+        await ctx.send("[GitHub](https://github.com/PhilLecl/WikiGameBot)")
+        await ctx.send("[GitLab](https://gitlab.com/PhilLecl/wikigamebot)")
