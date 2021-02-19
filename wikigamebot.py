@@ -167,3 +167,4 @@ class WikiGame(commands.Cog):
             return
         mentions = ctx.message.mentions
         self.whitelist.update(mentions)
+        await ctx.send("Added {0} user{1} to the whitelist.".format(len(mentions), ("" if len(mentions) == 1 else "s")))
