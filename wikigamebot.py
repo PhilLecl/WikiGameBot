@@ -24,6 +24,7 @@ class WikiGame(commands.Cog):
         self.bot = bot
         self.submissions = None
         self.channel = None
+        self.whitelist = set()
         self.pick = None
 
     # command checks
@@ -60,7 +61,7 @@ class WikiGame(commands.Cog):
         return True
 
     async def require_game_channel_member(self, ctx):
-        if ctx.author not in self.channel.members:
+        if ctx.author not in self.channel.members and ctx.author not in self.whitelist:
             await ctx.send("You are not a member of the game channel. What the fuck are you doing?")
             return False
         return True
@@ -159,3 +160,10 @@ class WikiGame(commands.Cog):
         correct = self.pick[0] in mentions
         await ctx.send("Your guess was {0}.".format("correct" if correct else "wrong"))
         await ctx.send("Use the 'solution' command to show the solution and an overview of all submitted articles.")
+
+    @commands.command()
+    async def whitelist(self, ctx):
+        if not await self.require_game(ctx) or not await self.require_game_channel(ctx):
+            return
+        mentions = ctx.message.mentions
+        self.whitelist.update(mentions)
