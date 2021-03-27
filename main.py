@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # WikiGameBot - a Discord bot for playing a game
-# Copyright (C) 2020  Philipp Leclercq
+# Copyright (C) 2020-2021  Philipp Leclercq
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
